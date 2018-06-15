@@ -14,7 +14,7 @@ public:
 
     AnimatedCharacter(Texture* texture, Vector2u imageCount, float width, float height, float xPos, float yPos, float switchTime, float speed);
     
-    void Update(float deltaTime);
+    void Update(float deltaTime, int rowChoice);
     void Draw(RenderWindow& window);
     Vector2f getPosition()
     {

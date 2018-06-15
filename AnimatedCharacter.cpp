@@ -18,13 +18,13 @@ AnimatedCharacter::AnimatedCharacter(Texture* texture, Vector2u imageCount, floa
     body.setTexture(texture);
 }
 
-void AnimatedCharacter::Update(float deltaTime)
+void AnimatedCharacter::Update(float deltaTime, int rowChoice)
 {
     Vector2f movement(0.0f, 0.0f);
     
     if(movement.x == 0 && movement.y == 0)
     {
-        row = 0;
+        row = rowChoice;
     }
     
     animate.Updated(row, deltaTime);
