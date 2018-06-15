@@ -1,0 +1,7 @@
+/home/demi/Git/SFMLMushrooms/CMakeFiles/install/strip.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/edit_cache.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/sfmlmushrooms.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/rebuild_cache.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/list_install_components.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/install/local.dir
+/home/demi/Git/SFMLMushrooms/CMakeFiles/install.dir

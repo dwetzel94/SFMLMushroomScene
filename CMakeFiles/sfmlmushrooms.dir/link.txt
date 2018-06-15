@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -lsfml-graphics -lsfml-window -lsfml-system -lGL -rdynamic CMakeFiles/sfmlmushrooms.dir/main.cpp.o  -o sfmlmushrooms 
