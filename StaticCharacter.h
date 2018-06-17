@@ -12,9 +12,11 @@ class StaticCharacter
 {
 public:
     
-    StaticCharacter(Texture* texture, Vector2u imageCount, float height, float width, float xPos, float yPos);
+    StaticCharacter(Texture* texture, Vector2u imageCount, float width, float height, float xPos, float yPos);
+    bool isTiled;
     
     void Update(float deltaTime);
+    //void Tile(Texture* texture, width, float height, float spanWidth, float spanHeight, float xPos, float yPos, RenderWindow& window);
     void Draw(RenderWindow& window);
     
     
