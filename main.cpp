@@ -12,7 +12,7 @@ using namespace sf;
 
 int main() 
 {
-    RenderWindow window(VideoMode(600, 600), "Test Window", Style::Close | Style::Titlebar | Style::Resize);
+    RenderWindow window(VideoMode(600, 600), "Mushroom Grove <3", Style::Close | Style::Titlebar | Style::Resize);
 
     
     Texture froggyTexture;
@@ -29,16 +29,41 @@ int main()
     darkMushroom1Texture.loadFromFile("../Textures/DarkMushroom1.png");
     Texture darkMushroom2Texture;
     darkMushroom2Texture.loadFromFile("../Textures/DarkMushroom2.png");
+    Texture darkMushroom3Texture;
+    darkMushroom3Texture.loadFromFile("../Textures/DarkMushroom3.png");
+    Texture darkMushroom4Texture;
+    darkMushroom4Texture.loadFromFile("../Textures/DarkMushroom4.png");
+    Texture darkMushroom5Texture;
+    darkMushroom5Texture.loadFromFile("../Textures/DarkMushroom5.png");
+    Texture blueShroomTexture;
+    blueShroomTexture.loadFromFile("../Textures/BlueShroom.png");
+    Texture yellowShroomTexture;
+    yellowShroomTexture.loadFromFile("../Textures/YellowShroom.png");
     Texture forestFloorTexture;
     forestFloorTexture.loadFromFile("../Textures/ForestFloor.png");
+       
     
-    StaticCharacter froggyChar(&froggyTexture, Vector2u(1, 1), 75.0, 75.0, 550.0f, 400.0f);
-    AnimatedCharacter bouncyShroomChar(&bouncyShroomTexture, Vector2u(5,1), 100.0, 100.0, 100.0, 350.0, 0.2f, 150.0f);
-    AnimatedCharacter orangeShroomChar(&orangeShroomTexture, Vector2u(3,1), 100.0, 150.0, 350.0, 450.0, 0.2f, 100.0f);
-    AnimatedCharacter orangeShroomChar2(&orangeShroomTexture2, Vector2u(4, 1), 120.0, 150.0, 450.0, 450.0, 0.2f, 150.0f);
-    AnimatedCharacter orangeShroomChar3(&orangeShroomTexture3, Vector2u(2,1), 75.0, 75.0, 200.0, 300.0, 0.2f, 150.0f);
-    StaticCharacter darkMushroom1Char(&darkMushroom1Texture, Vector2u(3, 1), 75.0, 75.0, 400.0f, 250.0f);
-    StaticCharacter forestFloor (&forestFloorTexture, Vector2u(1,1), 600.0, 600.0, 300.0, 300.0);
+    
+    StaticCharacter froggyChar(&froggyTexture, Vector2u(1, 1), 75.0, 75.0, 480.0, 260.0);
+    AnimatedCharacter bouncyShroomChar(&bouncyShroomTexture, Vector2u(5,1), 90.0, 100.0, 90.0, 375.0, 0.2f, 150.0f);
+    AnimatedCharacter orangeShroomChar(&orangeShroomTexture, Vector2u(3,1), 135.0, 175.0, 190.0, 500.0, 0.2f, 100.0f);
+    AnimatedCharacter orangeShroomChar2(&orangeShroomTexture2, Vector2u(4, 1), 110.0, 140.0, 390.0, 425.0, 0.2f, 150.0f);
+    AnimatedCharacter orangeShroomChar3(&orangeShroomTexture3, Vector2u(2,1), 75.0, 75.0, 185.0, 300.0, 0.2f, 150.0f);
+    AnimatedCharacter yellowShroomChar(&yellowShroomTexture, Vector2u(3,1), 100.0, 110.0, 500.0, 520.0, 0.2f, 140.0f);
+    StaticCharacter darkMushroom1Char(&darkMushroom1Texture, Vector2u(1, 1), 75.0, 75.0, 350.0, 250.0);
+    StaticCharacter darkMushroom1Char_2(&darkMushroom1Texture, Vector2u(1, 1), 75.0, 75.0, 400.0, 250.0);
+    StaticCharacter darkMushroom1Char_3(&darkMushroom1Texture, Vector2u(1, 1), 75.0, 75.0, 430.0, 250.0);
+    StaticCharacter darkMushroom2Char(&darkMushroom2Texture, Vector2u(1,1), 65.0, 80.0, 569.0, 230.0);
+    StaticCharacter darkMushroom2Char_2(&darkMushroom2Texture, Vector2u(1,1), 65.0, 80.0, 320.0, 240.0);
+    StaticCharacter darkMushroom2Char_3(&darkMushroom2Texture, Vector2u(1,1), 65.0, 80.0, 540.0, 250.0);
+    StaticCharacter darkMushroom2Char_4(&darkMushroom2Texture, Vector2u(1,1), 65.0, 80.0, 430.0, 290.0);
+    StaticCharacter darkMushroom3Char(&darkMushroom3Texture, Vector2u(1,1), 65.0, 80.0, 585.0, 295.0);
+    StaticCharacter darkMushroom4Char(&darkMushroom4Texture, Vector2u(1,1), 80.0, 90.0, 503.0, 315.0);
+    StaticCharacter darkMushroom4Char_2(&darkMushroom4Texture, Vector2u(1,1), 80.0, 95.0, 540.0, 325.0);
+    StaticCharacter darkMushroom5Char(&darkMushroom5Texture, Vector2u(1,1), 70.0, 85.0, 65.0, 280.0);
+    StaticCharacter blueShroomChar(&blueShroomTexture, Vector2u(1,1), 75.0, 85.0, 30.0, 260.0);
+    StaticCharacter blueShroomChar_2(&blueShroomTexture, Vector2u(1,1), 60.0, 75.0, 95.0, 240.0);
+    StaticCharacter forestFloor(&forestFloorTexture, Vector2u(1,1), 600.0, 600.0, 300.0, 300.0);
     
     
     float deltaTime = 0.0f;
@@ -52,14 +77,29 @@ int main()
         orangeShroomChar.Update(deltaTime, 0);
         orangeShroomChar2.Update(deltaTime, 0);
         orangeShroomChar3.Update(deltaTime, 0);
+        yellowShroomChar.Update(deltaTime, 0);
         window.clear(Color::Magenta);
         forestFloor.Draw(window);
-        froggyChar.Draw(window);
+        blueShroomChar.Draw(window);
+        blueShroomChar_2.Draw(window);
+        darkMushroom5Char.Draw(window);
         bouncyShroomChar.Draw(window);
         orangeShroomChar.Draw(window);
         orangeShroomChar2.Draw(window);
         orangeShroomChar3.Draw(window);
+        yellowShroomChar.Draw(window);
+        darkMushroom2Char_2.Draw(window);
         darkMushroom1Char.Draw(window);
+        darkMushroom1Char_2.Draw(window);
+        darkMushroom1Char_3.Draw(window);
+        froggyChar.Draw(window);
+        darkMushroom2Char.Draw(window);
+        darkMushroom2Char_3.Draw(window);
+        darkMushroom2Char_4.Draw(window);
+        darkMushroom3Char.Draw(window);
+        darkMushroom4Char.Draw(window);
+        darkMushroom4Char_2.Draw(window);
+       
         window.display();
     }
         
