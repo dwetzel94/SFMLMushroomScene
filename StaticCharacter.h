@@ -17,6 +17,10 @@ public:
     
     void Update(float deltaTime);
     //void Tile(Texture* texture, width, float height, float spanWidth, float spanHeight, float xPos, float yPos, RenderWindow& window);
+    Vector2f getPosition()
+    {
+        return body.getPosition();
+    }
     void Draw(RenderWindow& window);
     
     

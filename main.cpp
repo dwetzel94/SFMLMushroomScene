@@ -9,10 +9,17 @@
 using namespace std;
 using namespace sf;
 
+static const float VIEW_HEIGHT = 600;
+void ResizeView(const RenderWindow& window, View& view)
+{
+    float aspectRatio = float(window.getSize().x/ float(window.getSize().y));
+    view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
+}
 
 int main() 
 {
     RenderWindow window(VideoMode(600, 600), "Mushroom Grove <3", Style::Close | Style::Titlebar | Style::Resize);
+    View view(Vector2f(0.0f, 0.0f), Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 
     
     Texture froggyTexture;
@@ -63,7 +70,7 @@ int main()
     StaticCharacter darkMushroom5Char(&darkMushroom5Texture, Vector2u(1,1), 70.0, 85.0, 65.0, 280.0);
     StaticCharacter blueShroomChar(&blueShroomTexture, Vector2u(1,1), 75.0, 85.0, 30.0, 260.0);
     StaticCharacter blueShroomChar_2(&blueShroomTexture, Vector2u(1,1), 60.0, 75.0, 95.0, 240.0);
-    StaticCharacter forestFloor(&forestFloorTexture, Vector2u(1,1), 600.0, 600.0, 300.0, 300.0);
+    StaticCharacter forestFloor(&forestFloorTexture, Vector2u(1,1), VIEW_HEIGHT, VIEW_HEIGHT, VIEW_HEIGHT/2, VIEW_HEIGHT/2);
     
     
     float deltaTime = 0.0f;
@@ -73,12 +80,29 @@ int main()
     while(window.isOpen())
     {
         deltaTime = clock.restart().asSeconds();
+        
+        Event userEvent;
+        while(window.pollEvent(userEvent))
+        {
+            switch(userEvent.type)
+            {
+                case Event::Closed:
+                    window.close();
+                    break;
+                case Event::Resized:
+                    ResizeView(window, view);
+                    break;
+            }
+        }
+        
         bouncyShroomChar.Update(deltaTime, 0);
         orangeShroomChar.Update(deltaTime, 0);
         orangeShroomChar2.Update(deltaTime, 0);
         orangeShroomChar3.Update(deltaTime, 0);
         yellowShroomChar.Update(deltaTime, 0);
         window.clear(Color::Magenta);
+        view.setCenter(forestFloor.getPosition());
+        window.setView(view);
         forestFloor.Draw(window);
         blueShroomChar.Draw(window);
         blueShroomChar_2.Draw(window);
