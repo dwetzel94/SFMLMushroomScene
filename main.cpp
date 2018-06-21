@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <string>
 #include "StaticCharacter.h"
 #include "StaticCharacter.cpp"
 #include "AnimatedCharacter.h"
@@ -76,6 +77,15 @@ int main()
     float deltaTime = 0.0f;
     Clock clock;
     
+    Font libertine;
+    libertine.loadFromFile("../Textures/LinLibertine_RBIah.ttf");
+    Text text;
+    text.setFont(libertine);
+    text.setString("a quaint community");
+    text.setCharacterSize(35);
+    text.setFillColor(Color::Yellow);
+    text.setPosition(10, 10);;
+    
     
     while(window.isOpen())
     {
@@ -95,14 +105,19 @@ int main()
             }
         }
         
+        
+        //update functions for animated characters
         bouncyShroomChar.Update(deltaTime, 0);
         orangeShroomChar.Update(deltaTime, 0);
         orangeShroomChar2.Update(deltaTime, 0);
         orangeShroomChar3.Update(deltaTime, 0);
         yellowShroomChar.Update(deltaTime, 0);
+        
         window.clear(Color::Magenta);
         view.setCenter(forestFloor.getPosition());
         window.setView(view);
+        
+        //draw functions for each character
         forestFloor.Draw(window);
         blueShroomChar.Draw(window);
         blueShroomChar_2.Draw(window);
@@ -123,6 +138,7 @@ int main()
         darkMushroom3Char.Draw(window);
         darkMushroom4Char.Draw(window);
         darkMushroom4Char_2.Draw(window);
+        window.draw(text);
        
         window.display();
     }
