@@ -22,7 +22,7 @@ int main()
     RenderWindow window(VideoMode(600, 600), "Mushroom Grove <3", Style::Close | Style::Titlebar | Style::Resize);
     View view(Vector2f(0.0f, 0.0f), Vector2f(VIEW_HEIGHT, VIEW_HEIGHT));
 
-    
+    //declare and load textures
     Texture froggyTexture;
     froggyTexture.loadFromFile("../Textures/froggy.png");
     Texture bouncyShroomTexture;
@@ -51,7 +51,7 @@ int main()
     forestFloorTexture.loadFromFile("../Textures/ForestFloor.png");
        
     
-    
+    //declare character objects from either class
     StaticCharacter froggyChar(&froggyTexture, Vector2u(1, 1), 75.0, 75.0, 480.0, 260.0);
     AnimatedCharacter bouncyShroomChar(&bouncyShroomTexture, Vector2u(5,1), 90.0, 100.0, 90.0, 375.0, 0.2f, 150.0f);
     AnimatedCharacter orangeShroomChar(&orangeShroomTexture, Vector2u(3,1), 135.0, 175.0, 190.0, 500.0, 0.2f, 100.0f);
@@ -77,11 +77,12 @@ int main()
     float deltaTime = 0.0f;
     Clock clock;
     
+    //charming text
     Font libertine;
     libertine.loadFromFile("../Textures/LinLibertine_RBIah.ttf");
     Text text;
     text.setFont(libertine);
-    text.setString("a quaint community");
+    text.setString("a most winsome thicket");
     text.setCharacterSize(35);
     text.setFillColor(Color::Yellow);
     text.setPosition(10, 10);;
@@ -101,6 +102,8 @@ int main()
                     break;
                 case Event::Resized:
                     ResizeView(window, view);
+                    break;
+                default:
                     break;
             }
         }
